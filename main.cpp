@@ -1,8 +1,8 @@
 #include <QCoreApplication>
 #include <iostream>
-#include "ClassUnit.h"
-#include "MethodUnit.h"
-#include "PrintOperatorUnit.h"
+#include "products\ClassUnit.h"
+#include "products\MethodUnit.h"
+#include "products\PrintOperatorUnit.h"
 using namespace std;
 std::string generateProgram() {
     ClassUnit myClass( "MyClass" );
