@@ -19,7 +19,9 @@ SOURCES += \
         products/cpp/CppClassUnit.cpp \
         products/cpp/CppMethodUnit.cpp \
         products/cpp/CppPrintOperatorUnit.cpp \
-        products/cpp/CppUnit.cpp
+        products/java/JavaClassUnit.cpp \
+        products/java/JavaMethodUnit.cpp \
+        products/java/JavaPrintOperatorUnit.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -38,4 +40,6 @@ HEADERS += \
     products/cpp/CppClassUnit.h \
     products/cpp/CppMethodUnit.h \
     products/cpp/CppPrintOperatorUnit.h \
-    products/cpp/CppUnit.h
+    products/java/JavaClassUnit.h \
+    products/java/JavaMethodUnit.h \
+    products/java/JavaPrintOperatorUnit.h
