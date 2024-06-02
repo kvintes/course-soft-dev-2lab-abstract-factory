@@ -7,13 +7,11 @@ CONFIG += c++17 cmdline
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        examples/CppMyClass.cpp \
         factories/CppCodeGeneratorFactory.cpp \
         products/ClassUnit.cpp \
         products/MethodUnit.cpp \
         products/PrintOperatorUnit.cpp \
         products/Unit.cpp \
-        examples/CppMyClass.cpp \
         factories/CSharpCodeGeneratorFactory.cpp \
         factories/CodeGeneratorAFactory.cpp \
         factories/JavaCodeGeneratorFactory.cpp \
@@ -29,11 +27,9 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    examples/CppMyClass.h \
     factories/CppCodeGeneratorFactory.h \
     products/ClassUnit.h \
     products/MethodUnit.h \
-    examples/CppMyClass.h \
     products/PrintOperatorUnit.h \
     products/Unit.h \
     factories/CSharpCodeGeneratorFactory.h \

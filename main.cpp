@@ -8,7 +8,7 @@ using namespace std;
 std::string generateProgram( const std::shared_ptr< CodeGeneratorAFactory >& factory ) {
     auto myClass = factory->createClassUnit( "MyClass" );
     myClass->add(
-        factory->createMethodUnit( "testFunc1", "void", MethodUnit::STATIC  ),
+        factory->createMethodUnit( "testFunc1", "void", 0 ),
         ClassUnit::PUBLIC
         );
     myClass->add(
@@ -30,8 +30,7 @@ std::string generateProgram( const std::shared_ptr< CodeGeneratorAFactory >& fac
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    std::cout<<"w"<<std::endl;
-    // std::cout << generateProgram( std::shared_ptr< CppCodeGeneratorFactory >() )<<"feaw" << std::endl;
-    return 0;
+    auto cppFactory = std::make_shared<CppCodeGeneratorFactory>();
+    std::cout << generateProgram(cppFactory) << std::endl;
     return a.exec();
 }

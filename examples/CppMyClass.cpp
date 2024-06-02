@@ -1,2 +1,0 @@
-#include "..\examples\CppMyClass.h"
-

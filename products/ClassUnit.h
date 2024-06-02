@@ -1,7 +1,6 @@
 #ifndef CLASSUNIT_H
 #define CLASSUNIT_H
 #include "Unit.h"
-#include "ClassUnit.h"
 
 class ClassUnit : public Unit
 {
@@ -39,7 +38,7 @@ private:
     std::string m_name;
     std::vector< Fields > m_fields;
 };
-const std::vector< std::string > ClassUnit::ACCESS_MODIFIERS = { "public", "protected", "private" };
+// const std::vector< std::string > ClassUnit::ACCESS_MODIFIERS = { "public", "protected", "private" };
 
 
 #endif // CLASSUNIT_H
