@@ -11,8 +11,8 @@ public:
         PROTECTED,
         PRIVATE
     };
-    const std::vector< std::string >ACCESS_MODIFIERS = { "public",
-                                                       "protected", "private" };
+    using Fields = std::vector< std::shared_ptr< Unit > >;
+    static const std::vector< std::string >ACCESS_MODIFIERS;
 public:
     explicit ClassUnit( const std::string& name ) : m_name( name ) {
         m_fields.resize( ACCESS_MODIFIERS.size() );
@@ -26,29 +26,20 @@ public:
         }
         m_fields[ accessModifier ].push_back( unit );
     }
-    std::string compile( unsigned int level = 0 ) const
-    {
-        std::string result = generateShift( level ) + "class " + m_name + " {\n";
+protected:
+    const std::string& getName() const { return m_name; }
 
-        for( size_t i = 0; i < ACCESS_MODIFIERS.size(); ++i ) {
-            if( m_fields[ i ].empty() ) {
-                continue;
-            }
-            result += ACCESS_MODIFIERS[ i ] + ":\n";
-            for( const auto& f : m_fields[ i ] ) {
-                result += f->compile( level + 1 );
-            }
-            result += "\n";
+    const Fields& getFields( unsigned int accessGroup ) const {
+        if( ACCESS_MODIFIERS.size() <= accessGroup ) {
+            throw std::out_of_range( "Invalid access group index" );
         }
-        result += generateShift( level ) + "};\n";
-        return result;
+        return m_fields[ accessGroup ];
     }
 private:
     std::string m_name;
-    using Fields = std::vector< std::shared_ptr< Unit > >;
     std::vector< Fields > m_fields;
 };
-
+const std::vector< std::string > ClassUnit::ACCESS_MODIFIERS = { "public", "protected", "private" };
 
 
 #endif // CLASSUNIT_H

@@ -6,6 +6,9 @@ class CppPrintOperatorUnit: public PrintOperatorUnit
 {
 public:
     CppPrintOperatorUnit(const std::string& text );
+    std::string compile( unsigned int level = 0 ) const {
+        return generateShift( level ) + "printf( \"" + getText() + "\" );\n";
+    }
 };
 
 #endif // CPPPRINTOPERATORUNIT_H

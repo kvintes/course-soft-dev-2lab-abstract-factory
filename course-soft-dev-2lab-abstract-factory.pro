@@ -10,12 +10,8 @@ SOURCES += \
         examples/CppMyClass.cpp \
         factories/CppCodeGeneratorFactory.cpp \
         products/ClassUnit.cpp \
-        products/ClassUnit.cpp \
-        products/MethodUnit.cpp \
         products/MethodUnit.cpp \
         products/PrintOperatorUnit.cpp \
-        products/PrintOperatorUnit.cpp \
-        products/Unit.cpp \
         products/Unit.cpp \
         examples/CppMyClass.cpp \
         factories/CSharpCodeGeneratorFactory.cpp \
@@ -36,13 +32,9 @@ HEADERS += \
     examples/CppMyClass.h \
     factories/CppCodeGeneratorFactory.h \
     products/ClassUnit.h \
-    products/ClassUnit.h \
-    products/MethodUnit.h \
     products/MethodUnit.h \
     examples/CppMyClass.h \
     products/PrintOperatorUnit.h \
-    products/PrintOperatorUnit.h \
-    products/Unit.h \
     products/Unit.h \
     factories/CSharpCodeGeneratorFactory.h \
     factories/CodeGeneratorAFactory.h \

@@ -1,40 +1,37 @@
 #include <QCoreApplication>
 #include <iostream>
-#include "products\ClassUnit.h"
-#include "products\MethodUnit.h"
-#include "products\PrintOperatorUnit.h"
-#include "factories\CppCodeGeneratorFactory.h"
+#include "factories/CppCodeGeneratorFactory.h"
+#include "factories/CodeGeneratorAFactory.h"
+#include "products/MethodUnit.h"
 using namespace std;
-std::string generateProgram() {
-    // ClassUnit* classUnit = factory.createClassUnit();
-    // MethodUnit* methodUnit = factory.createMethodUnit();
-    // PrintOperatorUnit* printOperatorUnit = factory.createPrintOperatorUnit();
-    // ClassUnit myClass( "MyClass" );
-    // myClass.add(
-    //     std::make_shared< MethodUnit >( "testFunc1", "void", 0 ),
-    //     ClassUnit::PUBLIC
-    //     );
-    // myClass.add(
-    //     std::make_shared< MethodUnit >( "testFunc2", "void", MethodUnit::STATIC ),
-    //     ClassUnit::PRIVATE
-    //     );
-    // myClass.add(
-    //     std::make_shared< MethodUnit >( "testFunc3", "void", MethodUnit::VIRTUAL |
-    //                                                           MethodUnit::CONST ),
-    //     ClassUnit::PUBLIC
-    //     );
-    // auto method = std::make_shared< MethodUnit >( "testFunc4", "void",
-    //                                            MethodUnit::STATIC );
-    // method->add( std::make_shared< PrintOperatorUnit >( R"(Hello, world!\n)" ) );
-    // myClass.add( method, ClassUnit::PROTECTED );
-    // return myClass.compile();
-    return "";
+
+std::string generateProgram( const std::shared_ptr< CodeGeneratorAFactory >& factory ) {
+    auto myClass = factory->createClassUnit( "MyClass" );
+    myClass->add(
+        factory->createMethodUnit( "testFunc1", "void", MethodUnit::STATIC  ),
+        ClassUnit::PUBLIC
+        );
+    myClass->add(
+        factory->createMethodUnit( "testFunc2", "void", MethodUnit::STATIC  ),
+        ClassUnit::PRIVATE
+        );
+    myClass->add(
+        factory->createMethodUnit( "testFunc3", "void", MethodUnit::VIRTUAL | MethodUnit::CONST ),
+        ClassUnit::PUBLIC
+        );
+
+    std::shared_ptr< MethodUnit > method = factory->createMethodUnit( "testFunc4", "void", MethodUnit::STATIC );
+    method->add( factory->createPrintOperatorUnit( R"(Hello, world!\n)" ) );
+    myClass->add( method, ClassUnit::PROTECTED );
+
+    return myClass->compile();
 }
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    // CodeGeneratorAFactory *cppFactory = ;
-    // std::cout << generateProgram(&cppFactory) << std::endl;
+    std::cout<<"w"<<std::endl;
+    // std::cout << generateProgram( std::shared_ptr< CppCodeGeneratorFactory >() )<<"feaw" << std::endl;
+    return 0;
     return a.exec();
 }
