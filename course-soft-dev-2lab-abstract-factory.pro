@@ -8,6 +8,7 @@ CONFIG += c++17 cmdline
 
 SOURCES += \
         examples/CppMyClass.cpp \
+        factories/CppCodeGeneratorFactory.cpp \
         products/ClassUnit.cpp \
         products/ClassUnit.cpp \
         products/MethodUnit.cpp \
@@ -19,9 +20,12 @@ SOURCES += \
         examples/CppMyClass.cpp \
         factories/CSharpCodeGeneratorFactory.cpp \
         factories/CodeGeneratorAFactory.cpp \
-        factories/CppCodeGeneratorFactory.cpp \
         factories/JavaCodeGeneratorFactory.cpp \
-        main.cpp
+        main.cpp \
+        products/cpp/CppClassUnit.cpp \
+        products/cpp/CppMethodUnit.cpp \
+        products/cpp/CppPrintOperatorUnit.cpp \
+        products/cpp/CppUnit.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -30,6 +34,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     examples/CppMyClass.h \
+    factories/CppCodeGeneratorFactory.h \
     products/ClassUnit.h \
     products/ClassUnit.h \
     products/MethodUnit.h \
@@ -41,5 +46,8 @@ HEADERS += \
     products/Unit.h \
     factories/CSharpCodeGeneratorFactory.h \
     factories/CodeGeneratorAFactory.h \
-    factories/CppCodeGeneratorFactory.h \
-    factories/JavaCodeGeneratorFactory.h
+    factories/JavaCodeGeneratorFactory.h \
+    products/cpp/CppClassUnit.h \
+    products/cpp/CppMethodUnit.h \
+    products/cpp/CppPrintOperatorUnit.h \
+    products/cpp/CppUnit.h
